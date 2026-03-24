@@ -43,17 +43,33 @@ const academies = [
   },
 ];
 
-const AcademyList = () => {
+interface AcademyListProps {
+  selectedModality: string | null;
+}
+
+const AcademyList = ({ selectedModality }: AcademyListProps) => {
+  const filtered = selectedModality
+    ? academies.filter((a) => a.modalities.includes(selectedModality))
+    : academies;
+
   return (
     <section className="px-4 mt-5 pb-24">
       <h2 className="font-display font-semibold text-base text-foreground mb-3">
-        Academias perto de si
+        {selectedModality
+          ? `Academias de ${selectedModality}`
+          : "Academias perto de si"}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {academies.map((academy, i) => (
-          <AcademyCard key={academy.name} {...academy} index={i} />
-        ))}
-      </div>
+      {filtered.length === 0 ? (
+        <p className="text-sm text-muted-foreground text-center py-8">
+          Nenhuma academia encontrada para esta modalidade.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {filtered.map((academy, i) => (
+            <AcademyCard key={academy.name} {...academy} index={i} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
