@@ -17,7 +17,11 @@ const filterOptions = {
   distancia: ["Até 5 km", "Até 10 km", "Até 25 km", "Qualquer distância"],
 };
 
-const FilterBar = () => {
+interface FilterBarProps {
+  onClearModality?: () => void;
+}
+
+const FilterBar = ({ onClearModality }: FilterBarProps) => {
   const navigate = useNavigate();
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({
     modalidades: [],
@@ -43,7 +47,8 @@ const FilterBar = () => {
     <div className="flex gap-2 px-4 py-3 overflow-x-auto no-scrollbar">
       <button
         onClick={() => {
-          document.querySelector("#academy-list")?.scrollIntoView({ behavior: "smooth" });
+          onClearModality?.();
+          setTimeout(() => document.querySelector("#academy-list")?.scrollIntoView({ behavior: "smooth" }), 50);
         }}
         className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-border bg-card text-sm font-medium text-foreground whitespace-nowrap hover:border-primary hover:text-primary transition-colors shrink-0"
       >

@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <TopNav />
-      <FilterBar />
+      <FilterBar onClearModality={() => setSelectedModality(null)} />
       <HeroBanner />
       <ModalityChips selected={selectedModality} onSelect={setSelectedModality} />
       <div id="academy-list">
