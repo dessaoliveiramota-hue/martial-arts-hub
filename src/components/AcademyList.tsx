@@ -7,6 +7,7 @@ import academy4 from "@/assets/academy-4.jpg";
 const academies = [
   {
     name: "Dojo Algarve",
+    slug: "dojo-algarve",
     location: "Faro, Algarve",
     modalities: ["Karaté", "Judo"],
     rating: 4.8,
@@ -15,6 +16,7 @@ const academies = [
   },
   {
     name: "BJJ Portimão Academy",
+    slug: "bjj-portimao-academy",
     location: "Portimão, Algarve",
     modalities: ["Jiu-Jitsu", "MMA"],
     rating: 4.9,
@@ -23,6 +25,7 @@ const academies = [
   },
   {
     name: "Fight Club Lagos",
+    slug: "fight-club-lagos",
     location: "Lagos, Algarve",
     modalities: ["Muay Thai", "Boxe"],
     rating: 4.6,
@@ -31,6 +34,7 @@ const academies = [
   },
   {
     name: "Taekwondo Olhão",
+    slug: "taekwondo-olhao",
     location: "Olhão, Algarve",
     modalities: ["Taekwondo", "Kickboxing"],
     rating: 4.7,
