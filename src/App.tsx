@@ -7,6 +7,8 @@ import Index from "./pages/Index.tsx";
 import Opcoes from "./pages/Opcoes.tsx";
 import Atividade from "./pages/Atividade.tsx";
 import Conta from "./pages/Conta.tsx";
+import Eventos from "./pages/Eventos.tsx";
+import Calendario from "./pages/Calendario.tsx";
 import AcademyDetail from "./pages/AcademyDetail.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/opcoes" element={<Opcoes />} />
           <Route path="/atividade" element={<Atividade />} />
           <Route path="/conta" element={<Conta />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/calendario" element={<Calendario />} />
           <Route path="/academia/:slug" element={<AcademyDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

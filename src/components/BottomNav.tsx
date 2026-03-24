@@ -1,10 +1,11 @@
-import { Home, Settings, Activity, User } from "lucide-react";
+import { Home, Settings, Activity, User, CalendarDays } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const tabs = [
   { icon: Home, label: "Início", path: "/" },
-  { icon: Settings, label: "Opções", path: "/opcoes" },
+  { icon: CalendarDays, label: "Eventos", path: "/eventos" },
   { icon: Activity, label: "Atividade", path: "/atividade" },
+  { icon: Settings, label: "Opções", path: "/opcoes" },
   { icon: User, label: "Conta", path: "/conta" },
 ];
 
@@ -21,7 +22,7 @@ const BottomNav = () => {
             <button
               key={tab.label}
               onClick={() => navigate(tab.path)}
-              className="flex flex-col items-center gap-0.5 pt-1 min-w-[64px] transition-colors"
+              className="flex flex-col items-center gap-0.5 pt-1 min-w-[56px] transition-colors"
             >
               <tab.icon
                 className={`w-5 h-5 transition-colors ${
@@ -29,7 +30,7 @@ const BottomNav = () => {
                 }`}
               />
               <span
-                className={`text-[11px] font-medium transition-colors ${
+                className={`text-[10px] font-medium transition-colors ${
                   isActive ? "text-primary" : "text-nav-inactive"
                 }`}
               >
