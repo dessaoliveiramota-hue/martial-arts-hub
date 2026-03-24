@@ -47,7 +47,8 @@ const FilterBar = ({ onClearModality }: FilterBarProps) => {
     <div className="flex gap-2 px-4 py-3 overflow-x-auto no-scrollbar">
       <button
         onClick={() => {
-          document.querySelector("#academy-list")?.scrollIntoView({ behavior: "smooth" });
+          onClearModality?.();
+          setTimeout(() => document.querySelector("#academy-list")?.scrollIntoView({ behavior: "smooth" }), 50);
         }}
         className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-border bg-card text-sm font-medium text-foreground whitespace-nowrap hover:border-primary hover:text-primary transition-colors shrink-0"
       >
