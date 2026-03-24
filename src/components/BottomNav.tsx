@@ -1,25 +1,26 @@
 import { Home, Settings, Activity, User } from "lucide-react";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const tabs = [
-  { icon: Home, label: "Início" },
-  { icon: Settings, label: "Opções" },
-  { icon: Activity, label: "Atividade" },
-  { icon: User, label: "Conta" },
+  { icon: Home, label: "Início", path: "/" },
+  { icon: Settings, label: "Opções", path: "/opcoes" },
+  { icon: Activity, label: "Atividade", path: "/atividade" },
+  { icon: User, label: "Conta", path: "/conta" },
 ];
 
 const BottomNav = () => {
-  const [active, setActive] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border pb-safe">
       <div className="flex justify-around items-center h-16">
-        {tabs.map((tab, i) => {
-          const isActive = active === i;
+        {tabs.map((tab) => {
+          const isActive = location.pathname === tab.path;
           return (
             <button
               key={tab.label}
-              onClick={() => setActive(i)}
+              onClick={() => navigate(tab.path)}
               className="flex flex-col items-center gap-0.5 pt-1 min-w-[64px] transition-colors"
             >
               <tab.icon

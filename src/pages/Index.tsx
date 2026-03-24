@@ -12,7 +12,9 @@ const Index = () => {
       <FilterBar />
       <HeroBanner />
       <ModalityChips />
-      <AcademyList />
+      <div id="academy-list">
+        <AcademyList />
+      </div>
       <BottomNav />
     </div>
   );
