@@ -17,7 +17,11 @@ const filterOptions = {
   distancia: ["Até 5 km", "Até 10 km", "Até 25 km", "Qualquer distância"],
 };
 
-const FilterBar = () => {
+interface FilterBarProps {
+  onClearModality?: () => void;
+}
+
+const FilterBar = ({ onClearModality }: FilterBarProps) => {
   const navigate = useNavigate();
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({
     modalidades: [],
